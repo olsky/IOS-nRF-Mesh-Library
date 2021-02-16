@@ -121,3 +121,15 @@ extension Data : DataConvertible {
     }
     
 }
+
+extension Bool : DataConvertible {
+    
+    static func + (lhs: Data, rhs: Bool) -> Data {
+        if rhs {
+            return lhs + UInt8(0x01)
+        } else {
+            return lhs + UInt8(0x00)
+        }
+    }
+    
+}
